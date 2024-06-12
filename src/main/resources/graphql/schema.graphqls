@@ -1,0 +1,67 @@
+type Query {
+    #Beds
+  findBedById(bedId: String) : Bed
+  findAllBeds : [Bed]
+
+    #Accomodatiosns
+    findAccomodationById(accomodationId: String) : Accomodation
+    findAllAccomodations : [Accomodation]
+
+}
+
+
+type Mutation{
+    #Beds
+    createBed(inputBed: InputBed) : Bed,
+    updateBed(bedId: String, inputBed: InputBed) : Bed,
+    deleteBedById(bedId: String) : String
+
+    #Accomodations
+
+    createAccomodation(inputAccomodation: InputAcommodation) : Accomodation,
+    updateAccomodation(accomodationId: String, inputAccomodation: InputAcommodation) : Accomodation,
+    deleteAccomodationById(accomodationId: String) : String
+
+
+
+}
+
+
+
+type Bed{
+  id: ID,
+  title: String,
+  service: String
+}
+
+type Accomodation{
+  id: ID,
+    attention_number: Int,
+    owner: String,
+    description: String,
+    imageUrl: String,
+    schedule: String,
+    page: String,
+    quantity: Int,
+    description_services: String,
+    typeRoom: [String]
+
+
+}
+
+input InputBed{
+  title: String,
+  service: String
+}
+
+input InputAcommodation{
+    attention_number: Int,
+    owner: String,
+    description: String,
+    imageUrl: String,
+    schedule: String,
+    page: String,
+    quantity: Int,
+    description_services: String,
+    typeRoom: [String]
+}
