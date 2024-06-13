@@ -16,4 +16,5 @@ public interface IAccomodationService {
 
     Accomodation updateAccomodation(String id, Accomodation bed);
 
+    List<Accomodation> findAccomodationsByUserId(String idUser);
 }

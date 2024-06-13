@@ -22,6 +22,7 @@ public class InputAccomodation {
     private String instagramUrl;
     private String facebookUrl;
     private String webUrl;
+    private String idUser;
 
 
 }

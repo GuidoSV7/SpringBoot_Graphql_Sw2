@@ -16,7 +16,6 @@ public class User implements UserDetails {
     private String email;
     private String password;
     private String role;
-    private String accomodationId;
 
     // Implement UserDetails methods
     @Override

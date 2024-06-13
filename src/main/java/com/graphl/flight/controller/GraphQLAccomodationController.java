@@ -25,10 +25,13 @@ public class GraphQLAccomodationController {
     }
 
 
+
     @QueryMapping(name= "findAllAccomodations")
     public List<Accomodation> findAllAccomodations(){
         return accomodationService.findAllAccomodations();
     }
+
+
 
     @MutationMapping
     public Accomodation createAccomodation(@Argument InputAccomodation inputAccomodation){
@@ -48,6 +51,7 @@ public class GraphQLAccomodationController {
         accomodation.setWebUrl(inputAccomodation.getWebUrl());
         accomodation.setCompany(inputAccomodation.getCompany());
         accomodation.setCoordinates(inputAccomodation.getCoordinates());
+        accomodation.setIdUser(inputAccomodation.getIdUser());
 
 
 
@@ -111,8 +115,17 @@ public class GraphQLAccomodationController {
             accomodation.setCoordinates(inputAccomodation.getCoordinates());
         }
 
+        if (inputAccomodation.getIdUser() != null) {
+            accomodation.setIdUser(inputAccomodation.getIdUser());
+        }
+
 
         return accomodationService.updateAccomodation(id, accomodation);
+    }
+
+    @QueryMapping(name= "findAccomodationsByUserId")
+    public List<Accomodation> findAccomodationsByUserId(@Argument(name = "userId") String userId){
+        return accomodationService.findAccomodationsByUserId(userId);
     }
 
 }

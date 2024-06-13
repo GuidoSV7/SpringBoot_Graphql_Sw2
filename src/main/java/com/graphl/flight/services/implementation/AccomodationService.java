@@ -35,6 +35,8 @@ public class AccomodationService implements IAccomodationService {
         accomodationDAO.deleteById(id);
     }
 
+
+
     @Override
     public Accomodation updateAccomodation(String id, Accomodation accomodation) {
         Accomodation accomodationToUpdate = accomodationDAO.findById(id).orElseThrow();
@@ -84,11 +86,24 @@ public class AccomodationService implements IAccomodationService {
             accomodationToUpdate.setCoordinates(accomodation.getCoordinates());
         }
 
-        
-
+        if (accomodation.getIdUser() != null) {
+            accomodationToUpdate.setIdUser(accomodation.getIdUser());
+        }
 
         accomodationDAO.save(accomodationToUpdate);
         return accomodationToUpdate;
 
     }
+
+    @Override
+    public List<Accomodation> findAccomodationsByUserId(String idUser) {
+        List<Accomodation> accomodations = accomodationDAO.findByIdUser(idUser);
+        if (accomodations.isEmpty()) {
+            throw new RuntimeException("No accomodations found for user with id: " + idUser);
+
+        }
+        return accomodations;
+    }
+
+
 }
