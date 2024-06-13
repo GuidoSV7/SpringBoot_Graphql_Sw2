@@ -8,6 +8,7 @@ import java.util.List;
 public class InputAccomodation {
     private String id;
     private Number attention_number;
+    private String company;
     private String imageUrl;
     private String owner;
     private String coordinates;

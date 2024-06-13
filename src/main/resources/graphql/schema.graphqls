@@ -39,6 +39,7 @@ type Accomodation{
     attention_number: Int,
     owner: String,
     description: String,
+    company: String,
     imageUrl: String,
     stars: Int,
     schedule: String,
@@ -49,6 +50,7 @@ type Accomodation{
     instagramUrl: String,
     facebookUrl: String,
     webUrl: String,
+    coordinates: String
 
 
 
@@ -63,6 +65,7 @@ input InputAcommodation{
     attention_number: Int,
     owner: String,
     description: String,
+    company: String,
     imageUrl: String,
     stars: Int,
     schedule: String,
@@ -73,4 +76,5 @@ input InputAcommodation{
     instagramUrl: String,
     facebookUrl: String,
     webUrl: String,
+    coordinates: String
 }

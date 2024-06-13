@@ -13,6 +13,7 @@ public class Accomodation {
     private String id;
     private Number attention_number;
     private String imageUrl;
+    private String company;
     private String owner;
     private String coordinates;
     private Number stars;
@@ -25,5 +26,6 @@ public class Accomodation {
     private String instagramUrl;
     private String facebookUrl;
     private String webUrl;
+
 
 }

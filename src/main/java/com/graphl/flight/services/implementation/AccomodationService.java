@@ -51,6 +51,8 @@ public class AccomodationService implements IAccomodationService {
         accomodationToUpdate.setInstagramUrl(accomodation.getInstagramUrl());
         accomodationToUpdate.setWebUrl(accomodation.getWebUrl());
         accomodationToUpdate.setStars(accomodation.getStars());
+        accomodationToUpdate.setCompany(accomodation.getCompany());
+        accomodationToUpdate.setCoordinates(accomodation.getCoordinates());
 
         
 

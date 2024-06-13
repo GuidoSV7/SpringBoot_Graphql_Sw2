@@ -46,6 +46,8 @@ public class GraphQLAccomodationController {
         accomodation.setInstagramUrl(inputAccomodation.getInstagramUrl());
         accomodation.setFacebookUrl(inputAccomodation.getFacebookUrl());
         accomodation.setWebUrl(inputAccomodation.getWebUrl());
+        accomodation.setCompany(inputAccomodation.getCompany());
+        accomodation.setCoordinates(inputAccomodation.getCoordinates());
 
 
 
@@ -76,6 +78,8 @@ public class GraphQLAccomodationController {
         accomodation.setInstagramUrl(inputAccomodation.getInstagramUrl());
         accomodation.setFacebookUrl(inputAccomodation.getFacebookUrl());
         accomodation.setWebUrl(inputAccomodation.getWebUrl());
+        accomodation.setCompany(inputAccomodation.getCompany());
+        accomodation.setCoordinates(inputAccomodation.getCoordinates());
 
 
         return accomodationService.updateAccomodation(id, accomodation);
