@@ -26,6 +26,6 @@ public class Accomodation {
     private String instagramUrl;
     private String facebookUrl;
     private String webUrl;
-
+    private String userId;
 
 }
