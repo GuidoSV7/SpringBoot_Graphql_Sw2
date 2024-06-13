@@ -37,6 +37,34 @@ public class OfferService implements IOfferService {
     @Override
     public Offer updateOffer(String id, Offer offer) {
         Offer offerToUpdate = offerDAO.findById(id).orElseThrow();
+        if (offer.getTitle() != null) {
+            offerToUpdate.setTitle(offer.getTitle());
+        }
+        if (offer.getImageUrl() != null) {
+            offerToUpdate.setImageUrl(offer.getImageUrl());
+        }
+        if (offer.getTypeRoom() != null) {
+            offerToUpdate.setTypeRoom(offer.getTypeRoom());
+        }
+        if (offer.getBeds() != null) {
+            offerToUpdate.setBeds(offer.getBeds());
+        }
+        if (offer.getDescriptionServices() != null) {
+            offerToUpdate.setDescriptionServices(offer.getDescriptionServices());
+        }
+        if (offer.getPrice() != null) {
+            offerToUpdate.setPrice(offer.getPrice());
+        }
+        if (offer.getState() != null) {
+            offerToUpdate.setState(offer.getState());
+        }
+        if (offer.getIdAccomodation() != null) {
+            offerToUpdate.setIdAccomodation(offer.getIdAccomodation());
+        }
+        if (offer.getDiscount() != null) {
+            offerToUpdate.setDiscount(offer.getDiscount());
+        }
+
 
         offerDAO.save(offerToUpdate);
         return offerToUpdate;
