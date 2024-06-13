@@ -7,6 +7,11 @@ type Query {
     findAccomodationById(accomodationId: String) : Accomodation
     findAllAccomodations : [Accomodation]
 
+    #OpinionForms
+    findOpinionFormById(opinionFormId: String) : OpinionForm
+    findAllOpinionForms : [OpinionForm]
+
+
 }
 
 
@@ -21,6 +26,12 @@ type Mutation{
     createAccomodation(inputAccomodation: InputAcommodation) : Accomodation,
     updateAccomodation(accomodationId: String, inputAccomodation: InputAcommodation) : Accomodation,
     deleteAccomodationById(accomodationId: String) : String
+
+    #OpinionForms
+    createOpinionForm(inputOpinionForm: InputOpinionForm) : OpinionForm,
+    updateOpinionForm(opinionFormId: String, inputOpinionForm: InputOpinionForm) : OpinionForm,
+    deleteOpinionFormById(opinionFormId: String) : String
+
 
 
 
@@ -56,6 +67,18 @@ type Accomodation{
 
 }
 
+type OpinionForm{
+    id: ID,
+    state: Boolean,
+    origin: String,
+    destination: String,
+    accommodationName: String,
+    tripOpinion: String,
+    destinyOpinion: String,
+    reasonTrip: String
+
+}
+
 input InputBed{
   title: String,
   service: String
@@ -77,4 +100,16 @@ input InputAcommodation{
     facebookUrl: String,
     webUrl: String,
     coordinates: String
+}
+
+input InputOpinionForm{
+    id: ID,
+    state: Boolean,
+    origin: String,
+    destination: String,
+    accommodationName: String,
+    tripOpinion: String,
+    destinyOpinion: String,
+    reasonTrip: String
+
 }
