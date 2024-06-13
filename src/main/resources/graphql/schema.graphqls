@@ -14,6 +14,10 @@ type Query {
     findOpinionFormById(opinionFormId: String) : OpinionForm
     findAllOpinionForms : [OpinionForm]
 
+    #Offers
+    findOfferById(offerId: String) : Offer
+    findAllOffers : [Offer]
+    findOffersByAccomodationId(accomodationId: String) : [Offer]
 
 
 
@@ -37,6 +41,13 @@ type Mutation{
     createOpinionForm(inputOpinionForm: InputOpinionForm) : OpinionForm,
     updateOpinionForm(opinionFormId: String, inputOpinionForm: InputOpinionForm) : OpinionForm,
     deleteOpinionFormById(opinionFormId: String) : String
+
+    #Offers
+    createOffer(inputOffer: InputOffer) : Offer,
+    updateOffer(offerId: String, inputOffer: InputOffer) : Offer,
+    deleteOfferById(offerId: String) : String
+
+
 
 
 
@@ -86,6 +97,20 @@ type OpinionForm{
 
 }
 
+type Offer{
+    id: ID,
+    title: String,
+    price: Int,
+    discount: Int,
+    imageUrl: String,
+    beds: Int,
+    descriptionServices: String,
+    typeRoom: [String],
+    state: String,
+    idAccomodation: String
+
+}
+
 input InputBed{
   title: String,
   service: String
@@ -119,5 +144,19 @@ input InputOpinionForm{
     tripOpinion: String,
     destinyOpinion: String,
     reasonTrip: String
+
+}
+
+input InputOffer{
+    id: ID,
+    title: String,
+    price: Int,
+    discount: Int,
+    imageUrl: String,
+    beds: Int,
+    descriptionServices: String,
+    typeRoom: [String],
+    state: String,
+    idAccomodation: String
 
 }
