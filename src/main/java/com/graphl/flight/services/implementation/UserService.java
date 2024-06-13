@@ -21,6 +21,10 @@ public class UserService implements IUserService {
 
     @Override
     public User register(User user) {
+        User existingUser = userDAO.findByEmail(user.getEmail());
+        if (existingUser != null) {
+            throw new IllegalArgumentException("Email already exists");
+        }
         user.setRole("User");
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userDAO.save(user);
