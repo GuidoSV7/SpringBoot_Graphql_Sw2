@@ -28,4 +28,7 @@ public class Accomodation {
     private String webUrl;
     private String idUser;
 
+    public void setUser(User user) {
+
+    }
 }

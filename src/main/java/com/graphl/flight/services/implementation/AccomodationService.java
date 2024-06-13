@@ -1,6 +1,7 @@
 package com.graphl.flight.services.implementation;
 
 import com.graphl.flight.entities.Accomodation;
+import com.graphl.flight.entities.User;
 import com.graphl.flight.persistence.IAccomodationDAO;
 import com.graphl.flight.persistence.IAccomodationDAO;
 import com.graphl.flight.persistence.IUserDAO;
@@ -18,7 +19,10 @@ public class AccomodationService implements IAccomodationService {
     private IUserDAO    userDAO;
     @Override
     public Accomodation findById(String id) {
-        return accomodationDAO.findById(id).orElseThrow();
+        Accomodation accomodation = accomodationDAO.findById(id).orElseThrow();
+        User user = userDAO.findUserById(accomodation.getIdUser());
+        accomodation.setUser(user);
+        return accomodation;
     }
 
     @Override

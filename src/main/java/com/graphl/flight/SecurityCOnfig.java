@@ -22,7 +22,10 @@ public class SecurityCOnfig {
         configuration.setAllowedOrigins(Arrays.asList("*", "http://localhost:4200"));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", configuration);
+        configuration.addAllowedHeader("*");
+        configuration.addAllowedMethod("*");
+        configuration.setAllowCredentials(true);
+        source.registerCorsConfiguration("/graphql/**", configuration);
         return source;
     }
 
