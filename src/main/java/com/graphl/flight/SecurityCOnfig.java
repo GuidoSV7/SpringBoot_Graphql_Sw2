@@ -19,7 +19,7 @@ public class SecurityCOnfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource(){
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("*"));
+        configuration.setAllowedOrigins(Arrays.asList("*", "http://localhost:4200"));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
@@ -34,6 +34,7 @@ public class SecurityCOnfig {
                     .requestMatchers("/graphql").permitAll()
 
             )
+            .cors(c -> c.configurationSource(corsConfigurationSource()))
             .csrf(csrf -> csrf.disable());
         return http.build();
     }

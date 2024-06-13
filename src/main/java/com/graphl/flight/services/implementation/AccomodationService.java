@@ -3,6 +3,7 @@ package com.graphl.flight.services.implementation;
 import com.graphl.flight.entities.Accomodation;
 import com.graphl.flight.persistence.IAccomodationDAO;
 import com.graphl.flight.persistence.IAccomodationDAO;
+import com.graphl.flight.persistence.IUserDAO;
 import com.graphl.flight.services.IAccomodationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +15,7 @@ public class AccomodationService implements IAccomodationService {
 
     @Autowired
     private IAccomodationDAO accomodationDAO;
+    private IUserDAO    userDAO;
     @Override
     public Accomodation findById(String id) {
         return accomodationDAO.findById(id).orElseThrow();

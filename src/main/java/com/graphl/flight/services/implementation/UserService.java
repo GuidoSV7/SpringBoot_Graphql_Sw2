@@ -27,6 +27,11 @@ public class UserService implements IUserService {
     }
 
     @Override
+    public User findUserById(String idUser) {
+        return userDAO.findById(idUser).orElseThrow();
+    }
+
+    @Override
     public User login(String email, String password) {
         User user = userDAO.findByEmail(email);
         if (user != null && passwordEncoder.matches(password, user.getPassword())) {
