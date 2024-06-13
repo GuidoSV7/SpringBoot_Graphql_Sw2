@@ -107,7 +107,8 @@ type Offer{
     descriptionServices: String,
     typeRoom: [String],
     state: String,
-    idAccomodation: String
+    idAccomodation: String,
+    
 
 }
 
@@ -136,7 +137,6 @@ input InputAcommodation{
 }
 
 input InputOpinionForm{
-    id: ID,
     state: Boolean,
     origin: String,
     destination: String,
@@ -148,7 +148,6 @@ input InputOpinionForm{
 }
 
 input InputOffer{
-    id: ID,
     title: String,
     price: Int,
     discount: Int,
