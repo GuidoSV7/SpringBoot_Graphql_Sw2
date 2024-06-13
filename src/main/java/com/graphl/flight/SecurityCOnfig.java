@@ -25,7 +25,7 @@ public class SecurityCOnfig {
         configuration.addAllowedHeader("*");
         configuration.addAllowedMethod("*");
         configuration.setAllowCredentials(true);
-        source.registerCorsConfiguration("/graphql/**", configuration);
+        source.registerCorsConfiguration("/**", configuration);
         return source;
     }
 

@@ -19,10 +19,7 @@ public class AccomodationService implements IAccomodationService {
     private IUserDAO    userDAO;
     @Override
     public Accomodation findById(String id) {
-        Accomodation accomodation = accomodationDAO.findById(id).orElseThrow();
-        User user = userDAO.findUserById(accomodation.getIdUser());
-        accomodation.setUser(user);
-        return accomodation;
+        return accomodationDAO.findById(id).orElseThrow();
     }
 
     @Override
