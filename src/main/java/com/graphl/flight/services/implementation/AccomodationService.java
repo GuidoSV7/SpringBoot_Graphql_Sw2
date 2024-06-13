@@ -25,8 +25,8 @@ public class AccomodationService implements IAccomodationService {
     }
 
     @Override
-    public void createAccomodation(Accomodation bed) {
-        accomodationDAO.save(bed);
+    public void createAccomodation(Accomodation accomodation) {
+        accomodationDAO.save(accomodation);
 
     }
 
@@ -36,16 +36,22 @@ public class AccomodationService implements IAccomodationService {
     }
 
     @Override
-    public Accomodation updateAccomodation(String id, Accomodation bed) {
+    public Accomodation updateAccomodation(String id, Accomodation accomodation) {
         Accomodation accomodationToUpdate = accomodationDAO.findById(id).orElseThrow();
-        accomodationToUpdate.setAttention_number(bed.getAttention_number());
-        accomodationToUpdate.setOwner(bed.getOwner());
-        accomodationToUpdate.setDescription(bed.getDescription());
-        accomodationToUpdate.setSchedule(bed.getSchedule());
-        accomodationToUpdate.setPage(bed.getPage());
-        accomodationToUpdate.setQuantity(bed.getQuantity());
-        accomodationToUpdate.setDescription_services(bed.getDescription_services());
-        accomodationToUpdate.setImageUrl(bed.getImageUrl());
+        accomodationToUpdate.setAttention_number(accomodation.getAttention_number());
+        accomodationToUpdate.setOwner(accomodation.getOwner());
+        accomodationToUpdate.setDescription(accomodation.getDescription());
+        accomodationToUpdate.setSchedule(accomodation.getSchedule());
+        accomodationToUpdate.setPage(accomodation.getPage());
+        accomodationToUpdate.setQuantity(accomodation.getQuantity());
+        accomodationToUpdate.setDescription_services(accomodation.getDescription_services());
+        accomodationToUpdate.setImageUrl(accomodation.getImageUrl());
+        accomodationToUpdate.setTypeRoom(accomodation.getTypeRoom());
+        accomodationToUpdate.setFacebookUrl(accomodation.getFacebookUrl());
+        accomodationToUpdate.setInstagramUrl(accomodation.getInstagramUrl());
+        accomodationToUpdate.setWebUrl(accomodation.getWebUrl());
+        accomodationToUpdate.setStars(accomodation.getStars());
+
         
 
 

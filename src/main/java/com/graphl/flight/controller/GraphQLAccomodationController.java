@@ -8,10 +8,12 @@ import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
 
 @Controller
+@CrossOrigin(origins = "*")
 public class GraphQLAccomodationController {
     @Autowired
     private IAccomodationService accomodationService;
@@ -40,6 +42,11 @@ public class GraphQLAccomodationController {
         accomodation.setAttention_number(inputAccomodation.getAttention_number());
         accomodation.setImageUrl(inputAccomodation.getImageUrl());
         accomodation.setTypeRoom(inputAccomodation.getTypeRoom());
+        accomodation.setStars(inputAccomodation.getStars());
+        accomodation.setInstagramUrl(inputAccomodation.getInstagramUrl());
+        accomodation.setFacebookUrl(inputAccomodation.getFacebookUrl());
+        accomodation.setWebUrl(inputAccomodation.getWebUrl());
+
 
 
 
@@ -65,6 +72,10 @@ public class GraphQLAccomodationController {
         accomodation.setAttention_number(inputAccomodation.getAttention_number());
         accomodation.setImageUrl(inputAccomodation.getImageUrl());
         accomodation.setTypeRoom(inputAccomodation.getTypeRoom());
+        accomodation.setStars(inputAccomodation.getStars());
+        accomodation.setInstagramUrl(inputAccomodation.getInstagramUrl());
+        accomodation.setFacebookUrl(inputAccomodation.getFacebookUrl());
+        accomodation.setWebUrl(inputAccomodation.getWebUrl());
 
 
         return accomodationService.updateAccomodation(id, accomodation);

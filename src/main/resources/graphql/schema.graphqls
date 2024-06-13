@@ -40,11 +40,16 @@ type Accomodation{
     owner: String,
     description: String,
     imageUrl: String,
+    stars: Int,
     schedule: String,
     page: String,
     quantity: Int,
     description_services: String,
-    typeRoom: [String]
+    typeRoom: [String],
+    instagramUrl: String,
+    facebookUrl: String,
+    webUrl: String,
+
 
 
 }
@@ -59,9 +64,13 @@ input InputAcommodation{
     owner: String,
     description: String,
     imageUrl: String,
+    stars: Int,
     schedule: String,
     page: String,
     quantity: Int,
     description_services: String,
     typeRoom: [String]
+    instagramUrl: String,
+    facebookUrl: String,
+    webUrl: String,
 }

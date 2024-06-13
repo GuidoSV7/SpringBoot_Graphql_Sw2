@@ -72,8 +72,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<source>8</source>
-					<target>8</target>
+
 
 					<excludes>
 						<exclude>
