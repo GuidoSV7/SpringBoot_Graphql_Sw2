@@ -38,12 +38,14 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
+                .cors().and()
             .authorizeRequests(request ->
                 request
                     .requestMatchers("/graphql").permitAll()
 
+
             )
-            //.cors(c -> c.configurationSource(corsConfigurer()))
+            .cors(c -> c.configurationSource(corsConfigurationSource()))
             .csrf(csrf -> csrf.disable());
         return http.build();
     }
