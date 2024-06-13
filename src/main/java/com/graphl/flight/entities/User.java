@@ -76,6 +76,11 @@ public class User implements UserDetails {
         return name;
     }
 
+    public String getId(){
+        return id;
+    }
+
+
 
 
 
