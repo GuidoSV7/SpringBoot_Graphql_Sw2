@@ -10,6 +10,8 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.Arrays;
 import java.util.List;
@@ -18,22 +20,17 @@ import java.util.List;
 @EnableWebSecurity
 public class SecurityConfig {
     @Bean
-    public CorsConfigurationSource corsConfigurationSource(){
-        CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedHeaders(List.of("Authorization", "Cache-Control", "Content-Type"));
-        configuration.setExposedHeaders(List.of("Authorization", "Access-Control-Allow-Origin", "Access-Control-Allow-Credentials"));
-        configuration.setAllowedOrigins(Arrays.asList("*", "http://localhost:4200"));
-        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE"));
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        configuration.addAllowedHeader("*");
-        configuration.addAllowedMethod("*");
-        configuration.setAllowCredentials(true);
-
-        // Set Access-Control-Allow-Origin header to *
-        configuration.addExposedHeader("Access-Control-Allow-Origin");
-
-        source.registerCorsConfiguration("/**", configuration);
-        return source;
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurer() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**")
+                        .allowedOrigins("*")
+                        .allowedMethods("GET", "POST", "PUT", "DELETE", "HEAD", "OPTIONS")
+                        .allowedHeaders("*")
+                        .allowCredentials(true);
+            }
+        };
     }
 
     @Bean
@@ -44,7 +41,7 @@ public class SecurityConfig {
                     .requestMatchers("/graphql").permitAll()
 
             )
-            .cors(c -> c.configurationSource(corsConfigurationSource()))
+            //.cors(c -> c.configurationSource(corsConfigurer()))
             .csrf(csrf -> csrf.disable());
         return http.build();
     }
