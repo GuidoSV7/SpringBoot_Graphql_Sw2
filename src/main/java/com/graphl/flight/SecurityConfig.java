@@ -32,7 +32,7 @@ public class SecurityConfig {
         // Set Access-Control-Allow-Origin header to *
         configuration.addExposedHeader("Access-Control-Allow-Origin");
 
-        source.registerCorsConfiguration("/graphql/**", configuration);
+        source.registerCorsConfiguration("/**", configuration);
         return source;
     }
 
