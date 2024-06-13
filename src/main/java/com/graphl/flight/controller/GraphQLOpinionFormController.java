@@ -54,13 +54,27 @@ public class GraphQLOpinionFormController {
     @MutationMapping
     public OpinionForm updateOpinionForm(@Argument(name = "opinionFormId") String id, @Argument InputOpinionForm inputOpinionForm){
         OpinionForm opinionForm = new OpinionForm();
-        opinionForm.setState(inputOpinionForm.getState());
-        opinionForm.setOrigin(inputOpinionForm.getOrigin());
-        opinionForm.setDestination(inputOpinionForm.getDestination());
-        opinionForm.setTripOpinion(inputOpinionForm.getTripOpinion());
-        opinionForm.setDestinyOpinion(inputOpinionForm.getDestinyOpinion());
-        opinionForm.setAccommodationName(inputOpinionForm.getAccommodationName());
-        opinionForm.setReasonTrip(inputOpinionForm.getReasonTrip());
+        if (inputOpinionForm.getState() != null) {
+            opinionForm.setState(inputOpinionForm.getState());
+        }
+        if (inputOpinionForm.getOrigin() != null) {
+            opinionForm.setOrigin(inputOpinionForm.getOrigin());
+        }
+        if (inputOpinionForm.getDestination() != null) {
+            opinionForm.setDestination(inputOpinionForm.getDestination());
+        }
+        if (inputOpinionForm.getTripOpinion() != null) {
+            opinionForm.setTripOpinion(inputOpinionForm.getTripOpinion());
+        }
+        if (inputOpinionForm.getDestinyOpinion() != null) {
+            opinionForm.setDestinyOpinion(inputOpinionForm.getDestinyOpinion());
+        }
+        if (inputOpinionForm.getAccommodationName() != null) {
+            opinionForm.setAccommodationName(inputOpinionForm.getAccommodationName());
+        }
+        if (inputOpinionForm.getReasonTrip() != null) {
+            opinionForm.setReasonTrip(inputOpinionForm.getReasonTrip());
+        }
 
         
         return opinionFormService.updateOpinionForm(id, opinionForm);

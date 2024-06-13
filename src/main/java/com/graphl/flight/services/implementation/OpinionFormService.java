@@ -38,13 +38,27 @@ public class OpinionFormService implements IOpinionFormService {
     @Override
     public OpinionForm updateOpinionForm(String id, OpinionForm opinionForm) {
         OpinionForm opinionFormToUpdate = opinionFormDAO.findById(id).orElseThrow();
-        opinionFormToUpdate.setState(opinionForm.getState());
-        opinionFormToUpdate.setOrigin(opinionForm.getOrigin());
-        opinionFormToUpdate.setDestination(opinionForm.getDestination());
-        opinionFormToUpdate.setTripOpinion(opinionForm.getTripOpinion());
-        opinionFormToUpdate.setDestinyOpinion(opinionForm.getDestinyOpinion());
-        opinionFormToUpdate.setAccommodationName(opinionForm.getAccommodationName());
-        opinionFormToUpdate.setReasonTrip(opinionForm.getReasonTrip());
+        if (opinionForm.getState() != null) {
+            opinionFormToUpdate.setState(opinionForm.getState());
+        }
+        if (opinionForm.getOrigin() != null) {
+            opinionFormToUpdate.setOrigin(opinionForm.getOrigin());
+        }
+        if (opinionForm.getDestination() != null) {
+            opinionFormToUpdate.setDestination(opinionForm.getDestination());
+        }
+        if (opinionForm.getTripOpinion() != null) {
+            opinionFormToUpdate.setTripOpinion(opinionForm.getTripOpinion());
+        }
+        if (opinionForm.getDestinyOpinion() != null) {
+            opinionFormToUpdate.setDestinyOpinion(opinionForm.getDestinyOpinion());
+        }
+        if (opinionForm.getAccommodationName() != null) {
+            opinionFormToUpdate.setAccommodationName(opinionForm.getAccommodationName());
+        }
+        if (opinionForm.getReasonTrip() != null) {
+            opinionFormToUpdate.setReasonTrip(opinionForm.getReasonTrip());
+        }
         opinionFormDAO.save(opinionFormToUpdate);
         return opinionFormToUpdate;
 
