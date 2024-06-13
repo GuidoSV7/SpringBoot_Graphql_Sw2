@@ -21,6 +21,7 @@ public class UserService implements IUserService {
 
     @Override
     public User register(User user) {
+        user.setRole("User");
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userDAO.save(user);
     }
