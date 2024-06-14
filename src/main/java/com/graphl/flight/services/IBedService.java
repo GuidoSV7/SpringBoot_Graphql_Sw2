@@ -1,6 +1,6 @@
 package com.graphl.flight.services;
 
-import com.graphl.flight.entities.Bed;
+import com.graphl.flight.models.Bed;
 
 import java.util.List;
 

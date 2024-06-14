@@ -1,4 +1,4 @@
-package com.graphl.flight.entities;
+package com.graphl.flight.models;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
@@ -21,4 +21,5 @@ public class Offer {
     private List<String> typeRoom;
     private String state;
     private String idAccomodation;
+    private Accomodation accomodation;
 }

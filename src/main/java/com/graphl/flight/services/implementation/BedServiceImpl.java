@@ -1,7 +1,7 @@
 package com.graphl.flight.services.implementation;
 
-import com.graphl.flight.entities.Bed;
-import com.graphl.flight.persistence.IBedDAO;
+import com.graphl.flight.models.Bed;
+import com.graphl.flight.repository.IBedDAO;
 import com.graphl.flight.services.IBedService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

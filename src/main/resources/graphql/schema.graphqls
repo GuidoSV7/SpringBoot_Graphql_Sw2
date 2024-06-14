@@ -108,6 +108,7 @@ type Offer{
     typeRoom: [String],
     state: String,
     idAccomodation: String,
+    accomodation: Accomodation
 
 
 }
@@ -156,6 +157,8 @@ input InputOffer{
     descriptionServices: String,
     typeRoom: [String],
     state: String,
-    idAccomodation: String
+    idAccomodation: String,
+    accomodation: InputAcommodation
+
 
 }

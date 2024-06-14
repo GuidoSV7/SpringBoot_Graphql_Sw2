@@ -1,8 +1,7 @@
 package com.graphl.flight.services.implementation;
 
-import com.graphl.flight.entities.Offer;
-import com.graphl.flight.entities.Offer;
-import com.graphl.flight.persistence.IOfferDAO;
+import com.graphl.flight.models.Offer;
+import com.graphl.flight.repository.IOfferDAO;
 import com.graphl.flight.services.IOfferService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

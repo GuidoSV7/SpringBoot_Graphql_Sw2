@@ -15,4 +15,5 @@ public class InputOffer {
     private List<String> typeRoom;
     private String state;
     private String idAccomodation;
+    private InputAccomodation accomodation;
 }

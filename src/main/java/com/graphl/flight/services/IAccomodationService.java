@@ -1,6 +1,6 @@
 package com.graphl.flight.services;
 
-import com.graphl.flight.entities.Accomodation;
+import com.graphl.flight.models.Accomodation;
 
 import java.util.List;
 

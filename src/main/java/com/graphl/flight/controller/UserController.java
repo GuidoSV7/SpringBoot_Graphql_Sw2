@@ -1,6 +1,6 @@
 package com.graphl.flight.controller;
 
-import com.graphl.flight.entities.User;
+import com.graphl.flight.models.User;
 import com.graphl.flight.services.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

@@ -1,6 +1,6 @@
 package com.graphl.flight.services;
 
-import com.graphl.flight.entities.OpinionForm;
+import com.graphl.flight.models.OpinionForm;
 
 import java.util.List;
 

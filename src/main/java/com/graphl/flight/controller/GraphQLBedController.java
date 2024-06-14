@@ -1,6 +1,6 @@
 package com.graphl.flight.controller;
 
-import com.graphl.flight.entities.Bed;
+import com.graphl.flight.models.Bed;
 import com.graphl.flight.graphql.InputBed;
 import com.graphl.flight.services.IBedService;
 import org.springframework.beans.factory.annotation.Autowired;

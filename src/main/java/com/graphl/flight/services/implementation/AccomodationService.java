@@ -1,10 +1,8 @@
 package com.graphl.flight.services.implementation;
 
-import com.graphl.flight.entities.Accomodation;
-import com.graphl.flight.entities.User;
-import com.graphl.flight.persistence.IAccomodationDAO;
-import com.graphl.flight.persistence.IAccomodationDAO;
-import com.graphl.flight.persistence.IUserDAO;
+import com.graphl.flight.models.Accomodation;
+import com.graphl.flight.repository.IAccomodationDAO;
+import com.graphl.flight.repository.IUserDAO;
 import com.graphl.flight.services.IAccomodationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

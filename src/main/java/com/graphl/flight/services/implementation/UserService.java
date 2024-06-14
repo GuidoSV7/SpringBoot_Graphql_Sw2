@@ -1,8 +1,8 @@
 package com.graphl.flight.services.implementation;
 
 
-import com.graphl.flight.entities.User;
-import com.graphl.flight.persistence.IUserDAO;
+import com.graphl.flight.models.User;
+import com.graphl.flight.repository.IUserDAO;
 import com.graphl.flight.services.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

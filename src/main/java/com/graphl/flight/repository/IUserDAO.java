@@ -1,6 +1,6 @@
-package com.graphl.flight.persistence;
+package com.graphl.flight.repository;
 
-import com.graphl.flight.entities.User;
+import com.graphl.flight.models.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface IUserDAO extends MongoRepository<User, String> {

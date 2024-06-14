@@ -1,7 +1,9 @@
 package com.graphl.flight.controller;
 
-import com.graphl.flight.entities.Offer;
+import com.graphl.flight.models.Accomodation;
+import com.graphl.flight.models.Offer;
 import com.graphl.flight.graphql.InputOffer;
+import com.graphl.flight.services.IAccomodationService;
 import com.graphl.flight.services.IOfferService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.data.method.annotation.Argument;
@@ -18,6 +20,8 @@ public class GraphQLOfferController {
 
     @Autowired
     private IOfferService offerService;
+    @Autowired
+    private IAccomodationService accomodationService;
 
     @QueryMapping(name= "findOfferById")
     public Offer findOfferById(@Argument(name = "offerId") String id){
@@ -46,6 +50,20 @@ public class GraphQLOfferController {
         offer.setState(inputOffer.getState());
         offer.setIdAccomodation(inputOffer.getIdAccomodation());
         offer.setDiscount(inputOffer.getDiscount());
+
+        System.out.println("ID de Accomodation: " + offer.getIdAccomodation());
+
+        // Buscar el Accomodation correspondiente y asignarlo a la oferta
+        Accomodation accomodation = accomodationService.findById(offer.getIdAccomodation());
+        System.out.println(accomodation);
+        if (accomodation != null) {
+            offer.setAccomodation(accomodation);
+        } else {
+            // Manejar el caso en que no se encuentra el Accomodation
+            throw new RuntimeException("Accomodation not found with id: " + offer.getIdAccomodation());
+        }
+
+
 
         offerService.createOffer(offer);
         return offer;

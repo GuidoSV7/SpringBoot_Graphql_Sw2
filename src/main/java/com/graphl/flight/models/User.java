@@ -1,6 +1,5 @@
-package com.graphl.flight.entities;
+package com.graphl.flight.models;
 
-import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.security.core.GrantedAuthority;

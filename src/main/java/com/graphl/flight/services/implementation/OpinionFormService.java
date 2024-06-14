@@ -1,8 +1,7 @@
 package com.graphl.flight.services.implementation;
 
-import com.graphl.flight.entities.OpinionForm;
-import com.graphl.flight.persistence.IOpinionFormDAO;
-import com.graphl.flight.services.IBedService;
+import com.graphl.flight.models.OpinionForm;
+import com.graphl.flight.repository.IOpinionFormDAO;
 import com.graphl.flight.services.IOpinionFormService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,6 +1,6 @@
 package com.graphl.flight.services;
 
-import com.graphl.flight.entities.User;
+import com.graphl.flight.models.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 public interface IUserService extends UserDetailsService {

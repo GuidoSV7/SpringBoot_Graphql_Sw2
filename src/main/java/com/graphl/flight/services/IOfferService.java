@@ -1,6 +1,6 @@
 package com.graphl.flight.services;
 
-import com.graphl.flight.entities.Offer;
+import com.graphl.flight.models.Offer;
 
 import java.util.List;
 

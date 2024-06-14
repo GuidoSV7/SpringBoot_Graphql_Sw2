@@ -1,6 +1,6 @@
 package com.graphl.flight.controller;
 
-import com.graphl.flight.entities.OpinionForm;
+import com.graphl.flight.models.OpinionForm;
 import com.graphl.flight.graphql.InputOpinionForm;
 import com.graphl.flight.services.IOpinionFormService;
 import org.springframework.beans.factory.annotation.Autowired;

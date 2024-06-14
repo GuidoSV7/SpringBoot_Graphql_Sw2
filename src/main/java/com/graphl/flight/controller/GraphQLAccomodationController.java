@@ -1,6 +1,6 @@
 package com.graphl.flight.controller;
 
-import com.graphl.flight.entities.Accomodation;
+import com.graphl.flight.models.Accomodation;
 import com.graphl.flight.graphql.InputAccomodation;
 import com.graphl.flight.services.IAccomodationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,6 +52,7 @@ public class GraphQLAccomodationController {
         accomodation.setCompany(inputAccomodation.getCompany());
         accomodation.setCoordinates(inputAccomodation.getCoordinates());
         accomodation.setIdUser(inputAccomodation.getIdUser());
+
 
 
 
