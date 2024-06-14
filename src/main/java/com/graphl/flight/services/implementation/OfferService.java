@@ -1,17 +1,23 @@
 package com.graphl.flight.services.implementation;
 
+import com.graphl.flight.models.Accomodation;
 import com.graphl.flight.models.Offer;
+import com.graphl.flight.repository.IAccomodationDAO;
 import com.graphl.flight.repository.IOfferDAO;
 import com.graphl.flight.services.IOfferService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 public class OfferService implements IOfferService {
 
     @Autowired
     private IOfferDAO offerDAO;
+    @Autowired
+    private AccomodationService accomodationService;
     @Override
     public Offer findById(String id) {
         return offerDAO.findById(id).orElseThrow();
@@ -62,6 +68,19 @@ public class OfferService implements IOfferService {
         }
         if (offer.getDiscount() != null) {
             offerToUpdate.setDiscount(offer.getDiscount());
+        }
+
+        if (offer.getIdAccomodation()!= null){
+            // Buscar el Accomodation correspondiente y asignarlo a la oferta
+            Accomodation accomodation = accomodationService.findById(offer.getIdAccomodation());
+
+            if (accomodation != null) {
+                offerToUpdate.setAccomodation(accomodation);
+            } else {
+
+                throw new RuntimeException("Accomodation not found with id: " + offer.getIdAccomodation());
+            }
+
         }
 
 

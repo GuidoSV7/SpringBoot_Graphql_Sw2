@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface IAccomodationDAO extends MongoRepository<Accomodation, String> {
     List<Accomodation> findByIdUser(String idUser);
+
 }

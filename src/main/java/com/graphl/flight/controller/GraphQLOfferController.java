@@ -106,6 +106,22 @@ public class GraphQLOfferController {
             offer.setTypeRoom(inputOffer.getTypeRoom());
         }
 
+        if (inputOffer.getIdAccomodation()!= null){
+            // Buscar el Accomodation correspondiente y asignarlo a la oferta
+            Accomodation accomodation = accomodationService.findById(inputOffer.getIdAccomodation());
+            System.out.println(accomodation);
+            if (accomodation != null) {
+                offer.setAccomodation(accomodation);
+            } else {
+                // Manejar el caso en que no se encuentra el Accomodation
+                throw new RuntimeException("Accomodation not found with id: " + inputOffer.getIdAccomodation());
+            }
+
+        }
+
+
+
+
         return offerService.updateOffer(id, offer);
     }
 
