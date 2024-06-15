@@ -7,6 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @Document(collection = "opinionforms")
 public class OpinionForm {
+
     @Id
     private String id;
     private Boolean state;
@@ -16,4 +17,6 @@ public class OpinionForm {
     private String tripOpinion;
     private String destinyOpinion;
     private String reasonTrip;
+    private String IdUser;
+    private User user;
 }

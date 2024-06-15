@@ -1,7 +1,11 @@
 type Query {
+
+    #Users
+    finUserById(UserId:String):User
+
     #Beds
-  findBedById(bedId: String) : Bed
-  findAllBeds : [Bed]
+    findBedById(bedId: String) : Bed
+    findAllBeds : [Bed]
 
     #Accomodatiosns
     findAccomodationById(accomodationId: String) : Accomodation
@@ -93,7 +97,9 @@ type OpinionForm{
     accommodationName: String,
     tripOpinion: String,
     destinyOpinion: String,
-    reasonTrip: String
+    reasonTrip: String,
+    idUser: String,
+    user: User
 
 }
 
@@ -111,6 +117,14 @@ type Offer{
     accomodation: Accomodation
 
 
+}
+
+type User{
+    id: ID,
+    name: String,
+    email: String,
+    password: String,
+    role: String
 }
 
 input InputBed{
@@ -144,7 +158,9 @@ input InputOpinionForm{
     accommodationName: String,
     tripOpinion: String,
     destinyOpinion: String,
-    reasonTrip: String
+    reasonTrip: String,
+    idUser: String
+
 
 }
 

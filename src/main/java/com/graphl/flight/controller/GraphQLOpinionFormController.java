@@ -1,8 +1,11 @@
 package com.graphl.flight.controller;
 
 import com.graphl.flight.models.OpinionForm;
+import com.graphl.flight.models.OpinionForm;
 import com.graphl.flight.graphql.InputOpinionForm;
+import com.graphl.flight.models.User;
 import com.graphl.flight.services.IOpinionFormService;
+import com.graphl.flight.services.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
@@ -11,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @CrossOrigin(origins = "*")
@@ -18,6 +22,8 @@ public class GraphQLOpinionFormController {
 
     @Autowired
     private IOpinionFormService opinionFormService;
+    @Autowired
+    private IUserService userService;
 
     @QueryMapping(name= "findOpinionFormById")
     public OpinionForm findOpinionFormById(@Argument(name = "opinionFormId") String id){
@@ -41,6 +47,20 @@ public class GraphQLOpinionFormController {
         opinionForm.setDestinyOpinion(inputOpinionForm.getDestinyOpinion());
         opinionForm.setAccommodationName(inputOpinionForm.getAccommodationName());
         opinionForm.setReasonTrip(inputOpinionForm.getReasonTrip());
+        opinionForm.setIdUser(inputOpinionForm.getIdUser());
+
+
+        User user = userService.findById(opinionForm.getIdUser());
+        System.out.println(user);
+        if (user != null) {
+            opinionForm.setUser(user);
+        } else {
+            // Manejar el caso en que no se encuentra el OpinionForm
+            throw new RuntimeException("IdUser not found with id: " + opinionForm.getIdUser());
+        }
+        
+        
+
         opinionFormService.createOpinionForm(opinionForm);
         return opinionForm;
     }
@@ -75,6 +95,8 @@ public class GraphQLOpinionFormController {
         if (inputOpinionForm.getReasonTrip() != null) {
             opinionForm.setReasonTrip(inputOpinionForm.getReasonTrip());
         }
+
+
 
         
         return opinionFormService.updateOpinionForm(id, opinionForm);

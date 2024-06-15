@@ -2,6 +2,7 @@ package com.graphl.flight.services.implementation;
 
 
 import com.graphl.flight.models.User;
+import com.graphl.flight.models.User;
 import com.graphl.flight.repository.IUserDAO;
 import com.graphl.flight.services.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class UserService implements IUserService {
@@ -30,9 +33,10 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public User findUserById(String idUser) {
-        return userDAO.findById(idUser).orElseThrow();
+    public User findById(String id) {
+        return userDAO.findById(id).orElseThrow();
     }
+
 
     @Override
     public User login(String email, String password) {
@@ -43,12 +47,4 @@ public class UserService implements IUserService {
         throw new UsernameNotFoundException("Invalid login credentials");
     }
 
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userDAO.findByEmail(username);
-        if (user == null) {
-            throw new UsernameNotFoundException("User not found");
-        }
-        return user;
-    }
 }
